@@ -1,0 +1,1308 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>À Propos - DARDOMO | Excellence en BTP</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #ff6b00;
+            --primary-light: #FF8C5A;
+            --primary-dark: #e05a00;
+            --secondary: #0056b3;
+            --white: #FFFFFF;
+            --light: #f9f9f9;
+            --gray: #666;
+            --dark: #222;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--white);
+            color: var(--dark);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+        
+        /* Header */
+        .about-header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            padding: 1.2rem 5%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            transition: all 0.4s ease;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo-icon {
+            background: var(--white);
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+            transition: all 0.4s ease;
+        }
+        
+        .logo-icon i {
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+        
+        .logo-text {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 1.8rem;
+            color: var(--white);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .logo-text span {
+            color: var(--secondary);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+        
+        nav a {
+            position: relative;
+            text-decoration: none;
+            color: var(--white);
+            font-size: 1.1rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 5px 0;
+            transition: all 0.3s ease;
+        }
+        
+        nav a:hover,
+        nav a.active {
+            color: var(--secondary);
+        }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: var(--secondary);
+            transition: width 0.3s ease;
+        }
+        
+        nav a:hover::after,
+        nav a.active::after {
+            width: 100%;
+        }
+        
+        .cta-button {
+            background: var(--secondary);
+            color: var(--white);
+            border: none;
+            padding: 0.8rem 1.8rem;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 86, 179, 0.3);
+        }
+        
+        .cta-button:hover {
+            background: #003d82;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0, 86, 179, 0.4);
+        }
+        
+        .menu-toggle {
+            display: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Hero About */
+        .about-hero {
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(to right, var(--primary) 0%, var(--primary-dark) 100%);
+            padding: 0 5%;
+            margin-top: 100px;
+        }
+        
+        .about-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjQwIiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMDUpIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI3BhdHRlcm4pIi8+PC9zdmc+');
+            opacity: 0.3;
+            z-index: 1;
+        }
+        
+        .about-hero-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 5rem;
+            z-index: 10;
+            position: relative;
+        }
+        
+        .about-hero-text {
+            flex: 1;
+            color: var(--white);
+            z-index: 2;
+        }
+        
+        .about-hero-text h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 4.5rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .about-hero-text p {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 2rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .breadcrumb a {
+            color: var(--white);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .breadcrumb a:hover {
+            color: var(--secondary);
+        }
+        
+        .breadcrumb i {
+            font-size: 0.8rem;
+        }
+        
+        .about-hero-visual {
+            flex: 1;
+            position: relative;
+            perspective: 1000px;
+            z-index: 2;
+        }
+        
+        .about-hero-image {
+            width: 100%;
+            height: 400px;
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+            transform: rotate(-5deg);
+        }
+        
+        .about-hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        /* Notre Histoire */
+        .history-section {
+            padding: 8rem 5%;
+            background: var(--light);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .history-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            gap: 5rem;
+            align-items: center;
+        }
+        
+        .history-image {
+            flex: 1;
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            transform: rotate(2deg);
+            z-index: 2;
+        }
+        
+        .history-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, var(--primary), transparent);
+            opacity: 0.2;
+            z-index: 1;
+        }
+        
+        .history-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .history-text {
+            flex: 1;
+            z-index: 2;
+        }
+        
+        .section-subtitle {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.2rem;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+        }
+        
+        .section-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: var(--secondary);
+            margin-bottom: 2rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 80px;
+            height: 4px;
+            background: var(--primary);
+            border-radius: 2px;
+        }
+        
+        .history-text p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--dark);
+            margin-bottom: 1.5rem;
+        }
+        
+        .history-milestones {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .milestone-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            transition: all 0.4s ease;
+            border-top: 4px solid var(--primary);
+            text-align: center;
+        }
+        
+        .milestone-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .milestone-year {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .milestone-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .milestone-desc {
+            font-size: 0.95rem;
+            color: var(--gray);
+        }
+        
+        /* Notre Équipe */
+        .team-section {
+            padding: 8rem 5%;
+            background: var(--white);
+            position: relative;
+        }
+        
+        .team-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .team-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+        
+        .team-card {
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            position: relative;
+        }
+        
+        .team-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .team-image {
+            height: 350px;
+            overflow: hidden;
+            position: relative;
+            background: linear-gradient(135deg, var(--light) 0%, #e0e0e0 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .team-image i {
+            font-size: 4rem;
+            color: var(--primary);
+        }
+        
+        .team-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.5s ease;
+        }
+        
+        .team-card:hover .team-image img {
+            transform: scale(1.05);
+        }
+        
+        .team-social {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+        
+        .team-card:hover .team-social {
+            opacity: 1;
+        }
+        
+        .team-social a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: var(--white);
+            transition: all 0.3s ease;
+        }
+        
+        .team-social a:hover {
+            background: var(--secondary);
+            transform: translateY(-3px);
+        }
+        
+        .team-content {
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        .team-name {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .team-position {
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        
+        .team-desc {
+            color: var(--gray);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+        
+        /* Valeurs */
+        .values-section {
+            padding: 8rem 5%;
+            background: var(--light);
+            position: relative;
+        }
+        
+        .values-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .values-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+        
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+        
+        .value-card {
+            background: var(--white);
+            padding: 3rem 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.4s ease;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .value-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--primary);
+            transition: all 0.4s ease;
+        }
+        
+        .value-card:hover::before {
+            height: 100%;
+            opacity: 0.05;
+        }
+        
+        .value-icon {
+            width: 80px;
+            height: 80px;
+            background: rgba(255, 107, 0, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .value-card:hover .value-icon {
+            background: var(--primary);
+        }
+        
+        .value-icon i {
+            font-size: 2rem;
+            color: var(--primary);
+            transition: all 0.3s ease;
+        }
+        
+        .value-card:hover .value-icon i {
+            color: var(--white);
+        }
+        
+        .value-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+        
+        .value-desc {
+            color: var(--gray);
+            line-height: 1.7;
+        }
+        
+        /* Stats Section */
+        .stats-section {
+            padding: 6rem 5%;
+            background: var(--primary);
+            color: white;
+            text-align: center;
+        }
+        
+        .stats-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+        
+        .stat-item {
+            padding: 2rem;
+        }
+        
+        .counter {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 1.1rem;
+            margin: 0;
+            opacity: 0.9;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            padding: 6rem 5%;
+            background: linear-gradient(to right, var(--primary) 0%, var(--primary-dark) 100%);
+            color: var(--white);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-container {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .cta-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+        }
+        
+        .cta-text {
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.9;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .cta-btn {
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .cta-btn-primary {
+            background: var(--white);
+            color: var(--primary);
+            border: none;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .cta-btn-primary:hover {
+            background: var(--secondary);
+            color: var(--white);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .cta-btn-secondary {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .cta-btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--white);
+            transform: translateY(-3px);
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: #ddd;
+            padding: 4rem 5% 2rem;
+        }
+        
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+        
+        .footer-column h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 10px;
+            color: white;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--primary);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary);
+            transform: translateX(5px);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        .footer-bottom {
+            max-width: 1400px;
+            margin: 0 auto;
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .history-container {
+                flex-direction: column;
+            }
+            
+            .history-image {
+                max-width: 800px;
+            }
+        }
+        
+        @media (max-width: 1024px) {
+            .about-hero-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 3rem;
+            }
+            
+            .about-hero-text {
+                margin-top: 2rem;
+            }
+            
+            .about-hero-text p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+            
+            .breadcrumb {
+                justify-content: center;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+            }
+            
+            .menu-toggle {
+                display: block;
+            }
+            
+            .about-hero-text h1 {
+                font-size: 3rem;
+            }
+            
+            .history-milestones {
+                grid-template-columns: 1fr;
+            }
+            
+            .cta-title {
+                font-size: 2rem;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .logo-text {
+                font-size: 1.5rem;
+            }
+            
+            .about-hero-text h1 {
+                font-size: 2.2rem;
+            }
+            
+            .about-hero-text p {
+                font-size: 1rem;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .cta-btn {
+                width: 100%;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="about-header">
+        <div class="header-container">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-hammer"></i>
+                </div>
+                <div class="logo-text">Dar<span>domo</span></div>
+            </div>
+            
+            <nav>
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="apropos.html" class="active">À Propos</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#projets">Projets</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            
+            <button class="cta-button">Devis Gratuit</button>
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="about-hero">
+        <div class="about-hero-content">
+            <div class="about-hero-text">
+                <div class="breadcrumb">
+                    <a href="index.html">Accueil</a>
+                    <i class="fas fa-chevron-right"></i>
+                    <span>À Propos</span>
+                </div>
+                <h1>Excellence et Innovation</h1>
+                <p>Depuis 2018, DARDOMO transforme les visions en réalités tangibles. Découvrez l'histoire, les valeurs et l'équipe derrière nos succès dans le BTP, l'électrification et la télégestion.</p>
+            </div>
+            
+            <div class="about-hero-visual">
+                <div class="about-hero-image">
+                    <img src="https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80" alt="Équipe DARDOMO">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Notre Histoire -->
+    <section class="history-section">
+        <div class="history-container">
+            <div class="history-image">
+                <img src="https://images.unsplash.com/photo-1507206130118-b5907f817163?auto=format&fit=crop&w=800&q=80" alt="Histoire DARDOMO">
+            </div>
+            
+            <div class="history-text">
+                <span class="section-subtitle">Notre parcours</span>
+                <h2 class="section-title">Notre Histoire</h2>
+                <p>Fondée en 2018, DARDOMO s'est rapidement imposée comme un acteur clé dans les domaines du BTP, de l'électrification et des systèmes de télégestion. Aujourd'hui, nous sommes fiers de compter 11 collaborateurs permanents et plus de 20 projets réalisés avec succès.</p>
+                <p>Notre croissance repose sur un engagement inébranlable envers la qualité, l'innovation et la satisfaction client. Chaque projet est une nouvelle opportunité de repousser les limites de l'excellence technique.</p>
+                
+                <div class="history-milestones">
+                    <div class="milestone-card">
+                        <div class="milestone-year">2018</div>
+                        <h3 class="milestone-title">Fondation</h3>
+                        <p class="milestone-desc">Création de DARDOMO avec une vision claire d'excellence dans le BTP</p>
+                    </div>
+                    
+                    <div class="milestone-card">
+                        <div class="milestone-year">2020</div>
+                        <h3 class="milestone-title">Expansion</h3>
+                        <p class="milestone-desc">Développement des services d'électrification et de télégestion</p>
+                    </div>
+                    
+                    <div class="milestone-card">
+                        <div class="milestone-year">2024</div>
+                        <h3 class="milestone-title">Excellence</h3>
+                        <p class="milestone-desc">Plus de 20 projets réalisés et 11 collaborateurs permanents</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Notre Équipe -->
+    <section class="team-section">
+        <div class="team-container">
+            <div class="team-header">
+                <span class="section-subtitle">Les artisans de notre succès</span>
+                <h2 class="section-title">Notre Équipe</h2>
+            </div>
+            
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="team-image">
+                        <i class="fas fa-user-tie"></i>
+                        <div class="team-social">
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                    <div class="team-content">
+                        <h3 class="team-name">Ahmed Bennani</h3>
+                        <span class="team-position">Directeur Général</span>
+                        <p class="team-desc">15 ans d'expérience dans le BTP. Diplômé de l'École Nationale des Ponts et Chaussées, Ahmed pilote la stratégie globale de l'entreprise.</p>
+                    </div>
+                </div>
+                
+                <div class="team-card">
+                    <div class="team-image">
+                        <i class="fas fa-user-cog"></i>
+                        <div class="team-social">
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                    <div class="team-content">
+                        <h3 class="team-name">Fatima El Alaoui</h3>
+                        <span class="team-position">Directrice Technique</span>
+                        <p class="team-desc">Ingénieure en génie civil avec 12 ans d'expérience. Spécialisée dans la gestion de projets complexes et l'innovation technique.</p>
+                    </div>
+                </div>
+                
+                <div class="team-card">
+                    <div class="team-image">
+                        <i class="fas fa-user-hard-hat"></i>
+                        <div class="team-social">
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                    <div class="team-content">
+                        <h3 class="team-name">Youssef Mrani</h3>
+                        <span class="team-position">Chef de Projet Électrification</span>
+                        <p class="team-desc">Expert en systèmes électriques avec 10 ans d'expérience. Responsable de tous nos projets d'électrification et de télégestion.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Nos Valeurs -->
+    <section class="values-section">
+        <div class="values-container">
+            <div class="values-header">
+                <span class="section-subtitle">Ce qui nous guide</span>
+                <h2 class="section-title">Nos Valeurs</h2>
+            </div>
+            
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h3 class="value-title">Excellence</h3>
+                    <p class="value-desc">Nous visons l'excellence dans chaque projet, en dépassant les attentes de nos clients grâce à notre expertise technique et notre attention aux détails.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3 class="value-title">Innovation</h3>
+                    <p class="value-desc">Nous intégrons les dernières technologies et méthodes pour proposer des solutions innovantes et durables adaptées aux enjeux contemporains.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3 class="value-title">Intégrité</h3>
+                    <p class="value-desc">La transparence, l'honnêteté et le respect des engagements sont au cœur de nos relations avec nos clients, partenaires et collaborateurs.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3 class="value-title">Durabilité</h3>
+                    <p class="value-desc">Nous nous engageons pour un développement durable en privilégiant les solutions respectueuses de l'environnement et économes en énergie.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="value-title">Collaboration</h3>
+                    <p class="value-desc">Le travail d'équipe et la collaboration étroite avec nos clients sont essentiels pour mener à bien chaque projet dans les meilleures conditions.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="value-title">Sécurité</h3>
+                    <p class="value-desc">La sécurité de nos équipes et la qualité de nos réalisations sont nos priorités absolues sur tous nos chantiers et projets.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="stats-container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="counter">7</span>
+                    <p class="stat-label">Années d'expérience</p>
+                </div>
+                <div class="stat-item">
+                    <span class="counter">20</span>
+                    <p class="stat-label">Projets réalisés</p>
+                </div>
+                <div class="stat-item">
+                    <span class="counter">11</span>
+                    <p class="stat-label">Collaborateurs</p>
+                </div>
+                <div class="stat-item">
+                    <span class="counter">100</span>
+                    <p class="stat-label">% Satisfaction client</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-container">
+            <h2 class="cta-title">Prêt à concrétiser votre projet ?</h2>
+            <p class="cta-text">Notre équipe est à votre disposition pour discuter de vos besoins et vous proposer des solutions sur mesure adaptées à vos exigences.</p>
+            <div class="cta-buttons">
+                <a href="#contact" class="cta-btn cta-btn-primary">Demander un devis</a>
+                <a href="#contact" class="cta-btn cta-btn-secondary">Nous contacter</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>DARDOMO</h3>
+                <p>Expertise en BTP, électrification et solutions de télégestion depuis 2018. Qualité, innovation et respect des délais.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Liens Rapides</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html"><i class="fas fa-chevron-right"></i> Accueil</a></li>
+                    <li><a href="apropos.html"><i class="fas fa-chevron-right"></i> À Propos</a></li>
+                    <li><a href="#services"><i class="fas fa-chevron-right"></i> Services</a></li>
+                    <li><a href="#projets"><i class="fas fa-chevron-right"></i> Projets</a></li>
+                    <li><a href="#contact"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Services</h3>
+                <ul class="footer-links">
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Bâtiment & Travaux Publics</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Électrification</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Solutions de Télégestion</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Consulting</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Maintenance</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Newsletter</h3>
+                <p>Abonnez-vous pour recevoir nos dernières actualités et offres spéciales.</p>
+                <div class="newsletter-form" style="display: flex; margin-top: 15px;">
+                    <input type="email" placeholder="Votre email" style="flex: 1; padding: 0.8rem; border-radius: 8px 0 0 8px; border: none;">
+                    <button style="background: var(--primary); color: white; border: none; padding: 0 20px; border-radius: 0 8px 8px 0; cursor: pointer;">S'inscrire</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2024 DARDOMO. Tous droits réservés. | Conception: Équipe DARDOMO</p>
+        </div>
+    </footer>
+
+    <script>
+        // Animation pour le header au scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.about-header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        // Animation des éléments au chargement
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animation du hero
+            const heroTitle = document.querySelector('.about-hero-text h1');
+            const heroText = document.querySelector('.about-hero-text p');
+            const heroImage = document.querySelector('.about-hero-image');
+            
+            if (heroTitle && heroText && heroImage) {
+                heroTitle.style.opacity = '0';
+                heroTitle.style.transform = 'translateY(30px)';
+                heroText.style.opacity = '0';
+                heroText.style.transform = 'translateY(30px)';
+                heroImage.style.opacity = '0';
+                heroImage.style.transform = 'translateY(30px) rotate(-10deg)';
+                
+                setTimeout(() => {
+                    heroTitle.style.transition = 'opacity 1s ease, transform 1s ease';
+                    heroTitle.style.opacity = '1';
+                    heroTitle.style.transform = 'translateY(0)';
+                    
+                    heroText.style.transition = 'opacity 1s ease 0.3s, transform 1s ease 0.3s';
+                    heroText.style.opacity = '1';
+                    heroText.style.transform = 'translateY(0)';
+                    
+                    heroImage.style.transition = 'opacity 1s ease 0.6s, transform 1s ease 0.6s';
+                    heroImage.style.opacity = '1';
+                    heroImage.style.transform = 'translateY(0) rotate(-5deg)';
+                }, 300);
+            }
+            
+            // Animation des compteurs
+            const counters = document.querySelectorAll('.counter');
+            const speed = 200;
+            
+            const animateCounter = (counter, target) => {
+                let count = 0;
+                const increment = target / speed;
+                
+                const updateCount = () => {
+                    count += increment;
+                    if (count < target) {
+                        counter.innerText = Math.ceil(count);
+                        setTimeout(updateCount, 1);
+                    } else {
+                        counter.innerText = target;
+                    }
+                };
+                
+                updateCount();
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const target = +entry.target.innerText;
+                        entry.target.innerText = '0';
+                        animateCounter(entry.target, target);
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 });
+            
+            counters.forEach(counter => {
+                observer.observe(counter);
+            });
+            
+            // Menu mobile
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navMenu = document.querySelector('nav ul');
+            
+            if (menuToggle && navMenu) {
+                menuToggle.addEventListener('click', () => {
+                    navMenu.style.display = navMenu.style.display === 'flex' ? 'none' : 'flex';
+                    if (navMenu.style.display === 'flex') {
+                        navMenu.style.position = 'fixed';
+                        navMenu.style.top = '100px';
+                        navMenu.style.left = '0';
+                        navMenu.style.width = '100%';
+                        navMenu.style.backgroundColor = 'white';
+                        navMenu.style.flexDirection = 'column';
+                        navMenu.style.padding = '20px';
+                        navMenu.style.boxShadow = '0 10px 20px rgba(0,0,0,0.1)';
+                        navMenu.style.zIndex = '999';
+                    }
+                });
+            }
+            
+            // Navigation fluide
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                        
+                        // Fermer le menu mobile si ouvert
+                        if (navMenu && navMenu.style.display === 'flex') {
+                            navMenu.style.display = 'none';
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
