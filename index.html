@@ -1,0 +1,1386 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dardomo - Excellence en Bâtiment et Travaux Publics</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    /* Variables et reset */
+    :root {
+      --primary: #ff6b00;
+      --primary-dark: #e05a00;
+      --secondary: #0056b3;
+      --dark: #222;
+      --light: #f9f9f9;
+      --gray: #666;
+      --white: #fff;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Roboto', sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: #fff;
+      overflow-x: hidden;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    
+    p {
+      margin-bottom: 1rem;
+    }
+    
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    
+    ul {
+      list-style: none;
+    }
+    
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+    
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 15px;
+    }
+    
+    .section {
+      padding: 80px 0;
+    }
+    
+    .section-title {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+    
+    .section-title h2 {
+      font-size: 2.5rem;
+      position: relative;
+      display: inline-block;
+      margin-bottom: 15px;
+    }
+    
+    .section-title h2::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 50px;
+      height: 3px;
+      background-color: var(--primary);
+    }
+    
+    .section-title p {
+      max-width: 700px;
+      margin: 0 auto;
+      color: var(--gray);
+    }
+    
+    /* Header */
+    #header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: var(--white);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      z-index: 1000;
+      transition: all 0.3s ease;
+    }
+    
+    #header.scrolled {
+      background-color: rgba(255, 255, 255, 0.95);
+      padding: 5px 0;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    }
+    
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 0;
+    }
+    
+    .logo {
+      display: flex;
+      align-items: center;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 1.5rem;
+    }
+    
+    .logo-icon {
+      background-color: var(--primary);
+      color: white;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-right: 10px;
+    }
+    
+    .logo-text span {
+      color: var(--primary);
+    }
+    
+    nav ul {
+      display: flex;
+    }
+    
+    nav ul li {
+      margin: 0 15px;
+    }
+    
+    nav ul li a {
+      font-weight: 500;
+      transition: color 0.3s;
+      position: relative;
+    }
+    
+    nav ul li a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: var(--primary);
+      transition: width 0.3s;
+    }
+    
+    nav ul li a:hover::after,
+    nav ul li a.active::after {
+      width: 100%;
+    }
+    
+    nav ul li a:hover {
+      color: var(--primary);
+    }
+    
+    .cta-button {
+      background-color: var(--primary);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.3s;
+    }
+    
+    .cta-button:hover {
+      background-color: var(--primary-dark);
+      transform: translateY(-3px);
+    }
+    
+    .cta-outline {
+      background-color: transparent;
+      border: 2px solid var(--primary);
+      color: var(--primary);
+    }
+    
+    .cta-outline:hover {
+      background-color: var(--primary);
+      color: white;
+    }
+    
+    .menu-toggle {
+      display: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+    
+    /* Hero Section */
+    .hero {
+      padding-top: 120px;
+      padding-bottom: 80px;
+      background-color: var(--light);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 40%;
+      height: 100%;
+      background: linear-gradient(135deg, var(--primary) 0%, #ff8c42 100%);
+      z-index: 0;
+      transform: skewX(-15deg) translateX(30%);
+      border-radius: 0 0 0 100px;
+    }
+    
+    .hero-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 50px;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .hero-text {
+      flex: 1;
+      animation: fadeInUp 0.8s ease-out;
+    }
+    
+    .hero-text h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+    
+    .hero-text h1 span {
+      color: var(--primary);
+    }
+    
+    .hero-text p {
+      font-size: 1.1rem;
+      margin-bottom: 30px;
+      color: #555;
+    }
+    
+    .hero-btns {
+      display: flex;
+      gap: 15px;
+    }
+    
+    .hero-btn {
+      display: inline-block;
+      padding: 12px 30px;
+      border-radius: 5px;
+      font-weight: 500;
+      transition: all 0.3s;
+    }
+    
+    .btn-primary {
+      background-color: var(--primary);
+      color: white;
+    }
+    
+    .btn-primary:hover {
+      background-color: var(--primary-dark);
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    
+    .btn-secondary {
+      background-color: transparent;
+      border: 2px solid var(--primary);
+      color: var(--primary);
+    }
+    
+    .btn-secondary:hover {
+      background-color: var(--primary);
+      color: white;
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    
+    .hero-visual {
+      flex: 1;
+      animation: fadeInRight 0.8s ease-out;
+    }
+    
+    .construction-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+      position: relative;
+    }
+    
+    .grid-item {
+      background-color: var(--white);
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      aspect-ratio: 1/1;
+      font-size: 2rem;
+      color: var(--primary);
+      transition: all 0.3s;
+    }
+    
+    .grid-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+      background-color: var(--primary);
+      color: white;
+    }
+    
+    .item-large {
+      grid-column: span 2;
+      grid-row: span 2;
+      font-size: 3rem;
+    }
+    
+    /* À Propos Section */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+    }
+    
+    .about-image {
+      position: relative;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    
+    .about-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s;
+    }
+    
+    .about-image:hover img {
+      transform: scale(1.05);
+    }
+    
+    .about-badge {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      background-color: var(--primary);
+      color: white;
+      padding: 15px;
+      border-radius: 5px;
+      text-align: center;
+    }
+    
+    .about-badge h4 {
+      font-size: 1.5rem;
+      margin-bottom: 5px;
+    }
+    
+    .about-badge p {
+      margin: 0;
+      font-size: 0.9rem;
+    }
+    
+    .about-text {
+      animation: fadeInUp 0.8s ease-out;
+    }
+    
+    .about-stats {
+      margin: 20px 0;
+    }
+    
+    .about-stat {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+    
+    .about-stat i {
+      background-color: #f0f0f0;
+      color: var(--primary);
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.2rem;
+      margin-right: 15px;
+    }
+    
+    .about-stat div h4 {
+      margin-bottom: 5px;
+    }
+    
+    .about-stat div p {
+      margin: 0;
+      color: var(--gray);
+    }
+    
+    .about-actions {
+      display: flex;
+      gap: 15px;
+      margin-top: 30px;
+    }
+    
+    /* Services Section */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+    
+    .service-card {
+      background-color: var(--white);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      transition: all 0.3s;
+    }
+    
+    .service-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    }
+    
+    .service-img {
+      background-color: var(--light);
+      height: 200px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 4rem;
+      color: var(--primary);
+      transition: all 0.3s;
+    }
+    
+    .service-card:hover .service-img {
+      background-color: var(--primary);
+      color: white;
+    }
+    
+    .service-content {
+      padding: 25px;
+    }
+    
+    .service-content h3 {
+      margin-bottom: 15px;
+    }
+    
+    .service-content p {
+      color: var(--gray);
+      margin-bottom: 20px;
+    }
+    
+    .service-link {
+      display: flex;
+      align-items: center;
+      color: var(--primary);
+      font-weight: 500;
+    }
+    
+    .service-link i {
+      margin-left: 5px;
+      transition: transform 0.3s;
+    }
+    
+    .service-link:hover i {
+      transform: translateX(5px);
+    }
+    
+    /* Projets Section */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+    
+    .project-card {
+      position: relative;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      height: 300px;
+    }
+    
+    .project-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s;
+    }
+    
+    .project-card:hover img {
+      transform: scale(1.1);
+    }
+    
+    .project-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px;
+      background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+      color: white;
+      transform: translateY(100%);
+      transition: transform 0.5s;
+    }
+    
+    .project-card:hover .project-overlay {
+      transform: translateY(0);
+    }
+    
+    .project-overlay h3 {
+      margin-bottom: 5px;
+    }
+    
+    .project-overlay p {
+      margin-bottom: 15px;
+      font-size: 0.9rem;
+    }
+    
+    .project-overlay a {
+      color: var(--primary);
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+    }
+    
+    .project-overlay a i {
+      margin-left: 5px;
+      transition: transform 0.3s;
+    }
+    
+    .project-overlay a:hover i {
+      transform: translateX(5px);
+    }
+    
+    .projects-actions {
+      text-align: center;
+      margin-top: 50px;
+    }
+    
+    /* Stats Section */
+    .stats-section {
+      background-color: var(--primary);
+      color: white;
+      text-align: center;
+    }
+    
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+    
+    .stats-grid > div {
+      padding: 20px;
+    }
+    
+    .counter {
+      font-size: 3rem;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+    
+    .stats-grid p {
+      font-size: 1.1rem;
+      margin: 0;
+    }
+    
+    /* Contact Section */
+    .contact-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+    }
+    
+    .contact-form .form-group {
+      margin-bottom: 20px;
+    }
+    
+    .contact-form label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+    
+    .contact-form input,
+    .contact-form select,
+    .contact-form textarea {
+      width: 100%;
+      padding: 12px 15px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-family: inherit;
+      font-size: 1rem;
+      transition: border-color 0.3s;
+    }
+    
+    .contact-form input:focus,
+    .contact-form select:focus,
+    .contact-form textarea:focus {
+      border-color: var(--primary);
+      outline: none;
+    }
+    
+    .contact-form textarea {
+      resize: vertical;
+      min-height: 150px;
+    }
+    
+    .consent-group {
+      display: flex;
+      align-items: center;
+    }
+    
+    .consent-group input {
+      width: auto;
+      margin-right: 10px;
+    }
+    
+    .consent-group label {
+      margin: 0;
+      font-weight: normal;
+    }
+    
+    .contact-info h3 {
+      margin-bottom: 20px;
+    }
+    
+    .contact-item {
+      display: flex;
+      margin-bottom: 20px;
+    }
+    
+    .contact-icon {
+      background-color: #f0f0f0;
+      color: var(--primary);
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.2rem;
+      margin-right: 15px;
+      flex-shrink: 0;
+    }
+    
+    .contact-text h4 {
+      margin-bottom: 5px;
+    }
+    
+    .contact-text p, .contact-text a {
+      color: var(--gray);
+      margin: 0;
+    }
+    
+    .contact-text a:hover {
+      color: var(--primary);
+    }
+    
+    .social-links {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+    }
+    
+    .social-links a {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 40px;
+      height: 40px;
+      background-color: #f0f0f0;
+      color: #333;
+      border-radius: 50%;
+      transition: all 0.3s;
+    }
+    
+    .social-links a:hover {
+      background-color: var(--primary);
+      color: white;
+      transform: translateY(-3px);
+    }
+    
+    /* Map Section */
+    .map-section {
+      height: 350px;
+    }
+    
+    .map-section iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    
+    /* Footer */
+    footer {
+      background-color: var(--dark);
+      color: #ddd;
+      padding-top: 80px;
+    }
+    
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 30px;
+      margin-bottom: 50px;
+    }
+    
+    .footer-column h3 {
+      color: white;
+      margin-bottom: 20px;
+      font-size: 1.2rem;
+    }
+    
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      color: white;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+    }
+    
+    .footer-logo .logo-icon {
+      background-color: var(--primary);
+      color: white;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-right: 10px;
+    }
+    
+    .footer-links li {
+      margin-bottom: 10px;
+    }
+    
+    .footer-links a {
+      transition: color 0.3s;
+    }
+    
+    .footer-links a:hover {
+      color: var(--primary);
+    }
+    
+    .newsletter-form {
+      display: flex;
+      margin-top: 15px;
+    }
+    
+    .newsletter-form input {
+      flex: 1;
+      padding: 12px 15px;
+      border: none;
+      border-radius: 5px 0 0 5px;
+    }
+    
+    .newsletter-form button {
+      background-color: var(--primary);
+      color: white;
+      border: none;
+      padding: 0 20px;
+      border-radius: 0 5px 5px 0;
+      cursor: pointer;
+    }
+    
+    .newsletter-note {
+      font-size: 0.8rem;
+      color: #999;
+      margin-top: 10px;
+    }
+    
+    .footer-bottom {
+      border-top: 1px solid #444;
+      padding: 20px 0;
+      text-align: center;
+    }
+    
+    .footer-bottom p {
+      margin-bottom: 10px;
+    }
+    
+    .footer-legal {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+    
+    .footer-legal a {
+      color: #999;
+      transition: color 0.3s;
+    }
+    
+    .footer-legal a:hover {
+      color: var(--primary);
+    }
+    
+    /* Back to top */
+    #backToTop {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 50px;
+      height: 50px;
+      background-color: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.2rem;
+      cursor: pointer;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s;
+      z-index: 999;
+    }
+    
+    #backToTop.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    @keyframes fadeInRight {
+      from {
+        opacity: 0;
+        transform: translateX(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 992px) {
+      .hero-content {
+        flex-direction: column;
+      }
+      
+      .about-grid,
+      .services-grid,
+      .projects-grid,
+      .stats-grid,
+      .contact-section,
+      .footer-content {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
+      
+      nav {
+        position: fixed;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background-color: white;
+        box-shadow: 0 10px 10px rgba(0,0,0,0.1);
+        padding: 20px;
+        transform: translateY(-150%);
+        transition: transform 0.3s;
+        z-index: 999;
+      }
+      
+      nav.active {
+        transform: translateY(0);
+      }
+      
+      nav ul {
+        flex-direction: column;
+      }
+      
+      nav ul li {
+        margin: 10px 0;
+      }
+      
+      .cta-button:not(.menu-toggle) {
+        display: none;
+      }
+      
+      .section {
+        padding: 60px 0;
+      }
+      
+      .about-grid,
+      .services-grid,
+      .projects-grid,
+      .stats-grid,
+      .contact-section,
+      .footer-content {
+        grid-template-columns: 1fr;
+      }
+      
+      .hero {
+        padding-top: 100px;
+      }
+      
+      .hero-text h1 {
+        font-size: 2.5rem;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .hero-btns {
+        flex-direction: column;
+      }
+      
+      .about-actions {
+        flex-direction: column;
+      }
+      
+      .stats-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header id="header">
+    <div class="header-container container">
+      <div class="logo">
+        <div class="logo-icon"><i class="fas fa-hammer"></i></div>
+        <div class="logo-text">Dar<span>domo</span></div>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#accueil" class="active">Accueil</a></li>
+          <li><a href="apropos.html">À Propos</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#projets">Projets</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="cta-button">Devis Gratuit</button>
+      <div class="menu-toggle" aria-label="Ouvrir le menu"><i class="fas fa-bars"></i></div>
+    </div>
+  </header>
+  <main>
+    <!-- Hero Section -->
+    <section class="hero" id="accueil">
+      <div class="hero-content container">
+        <div class="hero-text">
+          <h1>Construisons <span>l'avenir</span> ensemble</h1>
+          <p>Dardomo, votre partenaire de confiance pour des projets de construction innovants et durables. Expertise, qualité et engagement sont au cœur de notre approche.</p>
+          <div class="hero-btns">
+            <a href="#projets" class="hero-btn btn-primary">Nos réalisations</a>
+            <a href="#contact" class="hero-btn btn-secondary">Contactez-nous</a>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="construction-grid">
+            <div class="grid-item"><i class="fas fa-home"></i></div>
+            <div class="grid-item"><i class="fas fa-tools"></i></div>
+            <div class="grid-item item-large"><i class="fas fa-hard-hat"></i></div>
+            <div class="grid-item"><i class="fas fa-ruler-combined"></i></div>
+            <div class="grid-item"><i class="fas fa-truck-pickup"></i></div>
+            <div class="grid-item"><i class="fas fa-building"></i></div>
+            <div class="grid-item"><i class="fas fa-trowel"></i></div>
+            <div class="grid-item"><i class="fas fa-drafting-compass"></i></div>
+            <div class="grid-item"><i class="fas fa-concierge-bell"></i></div>
+            <div class="grid-item"><i class="fas fa-traffic-cone"></i></div>
+            <div class="grid-item"><i class="fas fa-paint-roller"></i></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- À Propos Section -->
+    <section class="section" id="apropos">
+      <div class="container">
+        <div class="section-title">
+          <h2>À propos de DARDOMO</h2>
+          <p>Fondée en 2018, DARDOMO s'est imposée comme un acteur clé dans les domaines du BTP, de l'électrification et des systèmes de télégestion.</p>
+        </div>
+        <div class="about-grid">
+          <div>
+            <div class="about-image">
+              <img src="https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="Équipe DARDOMO">
+              <div class="about-badge">
+                <h4>+20 projets</h4>
+                <p>Réalisés avec succès depuis notre création</p>
+              </div>
+            </div>
+          </div>
+          <div class="about-text">
+            <h3>Notre expertise à votre service</h3>
+            <p>Depuis notre création en 2018, nous avons mené à bien des projets ambitieux qui témoignent de notre savoir-faire et de notre engagement envers l'excellence.</p>
+            <div class="about-stats">
+              <div class="about-stat"><i class="fas fa-users"></i><div><h4>11 collaborateurs permanents</h4><p>Une équipe qualifiée et passionnée</p></div></div>
+              <div class="about-stat"><i class="fas fa-project-diagram"></i><div><h4>+20 projets réalisés</h4><p>Des références solides et variées</p></div></div>
+              <div class="about-stat"><i class="fas fa-lightbulb"></i><div><h4>Innovation constante</h4><p>Des solutions techniques avancées</p></div></div>
+            </div>
+            <div class="about-actions">
+              <a href="#services" class="cta-button">Nos services</a>
+              <a href="apropos.html" class="cta-button cta-outline">En savoir plus</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Services Section -->
+    <section class="section" id="services">
+      <div class="container">
+        <div class="section-title">
+          <h2>Nos services</h2>
+          <p>DARDOMO offre une gamme complète de services dans le secteur du BTP et des solutions techniques.</p>
+        </div>
+        <div class="services-grid">
+          <div class="service-card">
+            <div class="service-img"><i class="fas fa-building"></i></div>
+            <div class="service-content">
+              <h3>Bâtiment & Travaux Publics</h3>
+              <p>Construction, rénovation et aménagement de bâtiments résidentiels et industriels selon les normes les plus strictes.</p>
+              <a href="#" class="service-link">En savoir plus <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+          <div class="service-card">
+            <div class="service-img"><i class="fas fa-bolt"></i></div>
+            <div class="service-content">
+              <h3>Électrification</h3>
+              <p>Solutions complètes d'électrification pour tous types de projets, de la conception à la mise en service.</p>
+              <a href="#" class="service-link">En savoir plus <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+          <div class="service-card">
+            <div class="service-img"><i class="fas fa-network-wired"></i></div>
+            <div class="service-content">
+              <h3>Solutions de Télégestion</h3>
+              <p>Systèmes intelligents de surveillance et de gestion à distance pour les infrastructures critiques.</p>
+              <a href="#" class="service-link">En savoir plus <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Projets Section -->
+    <section class="section" id="projets">
+      <div class="container">
+        <div class="section-title">
+          <h2>Nos réalisations</h2>
+          <p>Découvrez une sélection de nos projets les plus marquants.</p>
+        </div>
+        <div class="projects-grid">
+          <div class="project-card">
+            <img src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="Usines Eco Parc">
+            <div class="project-overlay">
+              <h3>Siège AAKAR CHARQ</h3>
+              <p>Rabat - Construction complète du siège social</p>
+              <a href="#">Voir les détails <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+          <div class="project-card">
+            <img src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="Usines Eco Parc">
+            <div class="project-overlay">
+              <h3>Usines Eco Parc</h3>
+              <p>Berrechid - Construction de deux unités industrielles</p>
+              <a href="#">Voir les détails <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+          <div class="project-card">
+            <img src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="Usines Eco Parc">
+            <div class="project-overlay">
+              <h3>Station d'épuration</h3>
+              <p>Pour Borgenindustrie - Solution complète</p>
+              <a href="#">Voir les détails <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="projects-actions">
+          <a href="#" class="cta-button">Voir tous nos projets <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </section>
+    <!-- Stats Section -->
+    <section class="section stats-section">
+      <div class="container">
+        <div class="stats-grid">
+          <div><div class="counter">7</div><p>Années d'expérience</p></div>
+          <div><div class="counter">20</div><p>Projets réalisés</p></div>
+          <div><div class="counter">11</div><p>Collaborateurs</p></div>
+          <div><div class="counter">100</div><p>Clients satisfaits</p></div>
+        </div>
+      </div>
+    </section>
+    <!-- Contact Section -->
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="section-title">
+          <h2>Contactez-nous</h2>
+          <p>Nous sommes à votre écoute pour discuter de votre projet.</p>
+        </div>
+        <div class="contact-section">
+          <div class="contact-form">
+            <form id="contactForm">
+              <div class="form-group">
+                <label for="name">Nom complet *</label>
+                <input type="text" id="name" required>
+              </div>
+              <div class="form-group">
+                <label for="email">Email *</label>
+                <input type="email" id="email" required>
+              </div>
+              <div class="form-group">
+                <label for="phone">Téléphone</label>
+                <input type="tel" id="phone">
+              </div>
+              <div class="form-group">
+                <label for="subject">Sujet *</label>
+                <select id="subject" required>
+                  <option value="">Sélectionnez un sujet</option>
+                  <option value="btp">Bâtiment & Travaux Publics</option>
+                  <option value="electrification">Électrification</option>
+                  <option value="telegestion">Télégestion</option>
+                  <option value="autre">Autre demande</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="message">Message *</label>
+                <textarea id="message" rows="5" required></textarea>
+              </div>
+              <div class="form-group consent-group">
+                <input type="checkbox" id="consent" required>
+                <label for="consent">J'accepte la politique de confidentialité et les CGU *</label>
+              </div>
+              <button type="submit" class="cta-button">Envoyer le message <i class="fas fa-paper-plane"></i></button>
+            </form>
+          </div>
+          <div class="contact-info">
+            <h3>Nos coordonnées</h3>
+            <div class="contact-details">
+              <div class="contact-item"><div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div><div class="contact-text"><h4>Adresse</h4><p>123 Avenue des Entreprises, Rabat, Maroc</p></div></div>
+              <div class="contact-item"><div class="contact-icon"><i class="fas fa-phone-alt"></i></div><div class="contact-text"><h4>Téléphone</h4><p>+212 5 37 123 456</p><p>+212 6 12 345 678</p></div></div>
+              <div class="contact-item"><div class="contact-icon"><i class="fas fa-envelope"></i></div><div class="contact-text"><h4>Email</h4><p><a href="mailto:contact@dardomo.ma">contact@dardomo.ma</a></p><p><a href="mailto:commercial@dardomo.ma">commercial@dardomo.ma</a></p></div></div>
+              <div class="contact-item"><div class="contact-icon"><i class="fas fa-clock"></i></div><div class="contact-text"><h4>Horaires d'ouverture</h4><p>Lundi - Vendredi : 8h30 - 18h30</p><p>Samedi : 9h - 13h</p></div></div>
+            </div>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Map Section -->
+    <div class="map-section">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3309.9333473555!2d-6.8534226847857!3d33.96973398063193!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xda76c5f2b5f0c9d%3A0x9a8f6a6c5d5f5d5e!2sRabat%2C%20Morocco!5e0!3m2!1sen!2sus!4v1620000000000!5m2!1sen!2sus" width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+  </main>
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-column">
+          <a href="#" class="footer-logo"><div class="logo-icon"><span>DM</span></div><span>DARDOMO</span></a>
+          <p>Expertise en BTP, électrification et solutions de télégestion depuis 2018.</p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        <div class="footer-column">
+          <h3>Liens rapides</h3>
+          <ul class="footer-links">
+            <li><a href="#accueil">Accueil</a></li>
+            <li><a href="apropos.html">À propos</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#projets">Projets</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>Services</h3>
+          <ul class="footer-links">
+            <li><a href="#">Bâtiment & Travaux Publics</a></li>
+            <li><a href="#">Électrification</a></li>
+            <li><a href="#">Solutions de Télégestion</a></li>
+            <li><a href="#">Consulting</a></li>
+            <li><a href="#">Maintenance</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>Newsletter</h3>
+          <p>Abonnez-vous pour recevoir nos actualités.</p>
+          <form class="newsletter-form">
+            <input type="email" placeholder="Votre email" required>
+            <button type="submit" class="cta-button"><i class="fas fa-paper-plane"></i></button>
+          </form>
+          <p class="newsletter-note">Nous ne partagerons jamais votre email.</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2023 DARDOMO. Tous droits réservés.</p>
+        <div class="footer-legal">
+          <a href="#">Mentions légales</a>
+          <a href="#">Politique de confidentialité</a>
+          <a href="#">CGU</a>
+          <a href="#">Plan du site</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <button id="backToTop" aria-label="Retour en haut"><i class="fas fa-arrow-up"></i></button>
+  <script>
+    // Menu mobile
+    document.addEventListener('DOMContentLoaded', function() {
+      const menuToggle = document.querySelector('.menu-toggle');
+      const nav = document.querySelector('nav');
+      
+      menuToggle.addEventListener('click', function() {
+        nav.classList.toggle('active');
+      });
+      
+      // Fermer le menu lorsqu'on clique sur un lien
+      document.querySelectorAll('nav ul li a').forEach(link => {
+        link.addEventListener('click', () => {
+          nav.classList.remove('active');
+        });
+      });
+      
+      // Navigation fluide
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            window.scrollTo({
+              top: target.offsetTop - 80,
+              behavior: 'smooth'
+            });
+          }
+        });
+      });
+      
+      // Changement de lien actif lors du défilement
+      const sections = document.querySelectorAll('section');
+      const navLinks = document.querySelectorAll('nav ul li a');
+      
+      window.addEventListener('scroll', function() {
+        let current = '';
+        
+        sections.forEach(section => {
+          const sectionTop = section.offsetTop;
+          const sectionHeight = section.clientHeight;
+          
+          if (pageYOffset >= (sectionTop - 100)) {
+            current = section.getAttribute('id');
+          }
+        });
+        
+        navLinks.forEach(link => {
+          link.classList.remove('active');
+          if (link.getAttribute('href') === `#${current}`) {
+            link.classList.add('active');
+          }
+        });
+      });
+      
+      // Header scroll effect
+      const header = document.getElementById('header');
+      
+      window.addEventListener('scroll', function() {
+        if (window.pageYOffset > 100) {
+          header.classList.add('scrolled');
+        } else {
+          header.classList.remove('scrolled');
+        }
+      });
+      
+      // Bouton "Retour en haut"
+      const backToTopButton = document.getElementById('backToTop');
+      
+      window.addEventListener('scroll', function() {
+        if (window.pageYOffset > 300) {
+          backToTopButton.classList.add('visible');
+        } else {
+          backToTopButton.classList.remove('visible');
+        }
+      });
+      
+      backToTopButton.addEventListener('click', function() {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      });
+      
+      // Animation des compteurs
+      const counters = document.querySelectorAll('.counter');
+      const speed = 200;
+      
+      const animateCounter = (counter, target) => {
+        let count = 0;
+        const increment = target / speed;
+        
+        const updateCount = () => {
+          count += increment;
+          if (count < target) {
+            counter.innerText = Math.ceil(count);
+            setTimeout(updateCount, 1);
+          } else {
+            counter.innerText = target;
+          }
+        };
+        
+        updateCount();
+      };
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const target = +entry.target.innerText;
+            entry.target.innerText = '0';
+            animateCounter(entry.target, target);
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.5 });
+      
+      counters.forEach(counter => {
+        observer.observe(counter);
+      });
+      
+      // Formulaire de contact
+      const contactForm = document.getElementById('contactForm');
+      
+      contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Ici vous pouvez ajouter le code pour envoyer le formulaire
+        alert('Formulaire soumis avec succès ! Merci pour votre message.');
+        contactForm.reset();
+      });
+    });
+  </script>
+</body>
+</html>
